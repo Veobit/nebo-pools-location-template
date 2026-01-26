@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nebo Pools - [City Name] Pool Installation | Location Page Template v3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           NEBO POOLS - LOCATION PAGE TEMPLATE v3
+           v1 Hero/Offer Style + v2 Sections + Correct Colors
+           ======================================== */
+
+        :root {
+            /* Correct Brand Colors */
+            --navy: #0C2340;
+            --teal: #5BC0BE;
+            --teal-hover: #4BA8A6;
+            --bg-light: #E8F4F8;
+            --bg-section: #DCE9ED;
+            --coral: #E63946;
+            --white: #FFFFFF;
+            --gray-100: #F5F7FA;
+            --gray-200: #E4E7EB;
+            --gray-300: #CBD2D9;
+            --gray-500: #7B8794;
+            --gray-700: #3E4C59;
+            --gray-900: #1F2933;
+
+            /* Typography */
+            --h1: 48px;
+            --h2: 40px;
+            --h3: 32px;
+            --h4: 24px;
+            --p1: 20px;
+            --p2: 16px;
+            --small: 14px;
+
+            /* Spacing */
+            --section-padding: 80px;
+            --container-width: 1200px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-900);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1 { font-size: var(--h1); font-weight: 800; line-height: 1.1; }
+        h2 { font-size: var(--h2); font-weight: 700; line-height: 1.2; }
+        h3 { font-size: var(--h3); font-weight: 700; line-height: 1.3; }
+        h4 { font-size: var(--h4); font-weight: 600; line-height: 1.4; }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--teal);
+            color: var(--navy);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: var(--p2);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary:hover {
+            background: var(--teal-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(91, 192, 190, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--navy);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: var(--p2);
+            text-decoration: none;
+            border: 2px solid var(--navy);
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .placeholder { color: var(--teal); }
+
+        /* ========================================
+           SECTION 1: HERO (v1 Style - Split Layout)
+           ======================================== */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+            color: var(--white);
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="80" cy="20" r="40" fill="%235BC0BE" opacity="0.1"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(91, 192, 190, 0.2);
+            color: var(--teal);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: var(--small);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 { margin-bottom: 20px; }
+
+        .hero-subtitle {
+            font-size: var(--p1);
+            color: var(--gray-300);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .stat-item { text-align: left; }
+        .stat-number { font-size: var(--h3); font-weight: 800; color: var(--teal); }
+        .stat-label { font-size: var(--small); color: var(--gray-300); }
+
+        .hero-image {
+            background: var(--gray-700);
+            border-radius: 16px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-300);
+            font-size: var(--p2);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-image::after {
+            content: '🏊 Hero Pool Image';
+            position: absolute;
+            font-size: 18px;
+        }
+
+        /* ========================================
+           SECTION 2: SPECIAL OFFER (v1 Style - Coral Banner)
+           ======================================== */
+        .special-offer {
+            background: linear-gradient(90deg, var(--coral) 0%, #FF6B6B 100%);
+            color: var(--white);
+            padding: 40px 0;
+        }
+
+        .offer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .offer-text h3 { font-size: var(--h4); margin-bottom: 8px; }
+        .offer-text p { font-size: var(--p2); opacity: 0.9; }
+
+        .offer-price { text-align: right; }
+        .price-label { font-size: var(--small); opacity: 0.8; }
+        .price-current { font-size: var(--h3); font-weight: 800; }
+
+        .offer-cta .btn-primary {
+            background: var(--white);
+            color: var(--coral);
+        }
+
+        /* ========================================
+           SECTION 3: VINYL PACKAGE DETAILS
+           ======================================== */
+        .vinyl-package {
+            padding: var(--section-padding) 0;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+        .section-header h2 { color: var(--navy); margin-bottom: 16px; }
+        .section-header p { font-size: var(--p1); color: var(--gray-500); }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .package-image {
+            background: var(--gray-200);
+            border-radius: 16px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            position: relative;
+        }
+
+        .package-price-tag {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .package-price-tag .price { color: var(--coral); font-weight: 700; }
+
+        .feature-group {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+        }
+        .feature-group h4 { color: var(--navy); margin-bottom: 16px; }
+        .feature-group ul { list-style: none; }
+        .feature-group li {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--gray-200);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--gray-700);
+        }
+        .feature-group li:last-child { border-bottom: none; }
+        .feature-group li::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            background: var(--bg-light);
+            color: var(--teal);
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 11px;
+            flex-shrink: 0;
+        }
+
+        /* ========================================
+           SECTION 4: FIBERGLASS PACKAGES (v1 Style Cards)
+           ======================================== */
+        .fiberglass-packages {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pricing-card {
+            background: var(--bg-light);
+            border-radius: 16px;
+            padding: 40px 32px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+        }
+        .pricing-card.featured {
+            border: 3px solid var(--teal);
+            transform: scale(1.05);
+            background: var(--white);
+        }
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--navy);
+            color: var(--white);
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: var(--small);
+            font-weight: 700;
+        }
+
+        .card-tier { font-size: var(--small); color: var(--gray-500); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+        .card-title { font-size: var(--h4); color: var(--navy); margin-bottom: 8px; }
+        .card-price { font-size: var(--h3); font-weight: 800; color: var(--teal); margin-bottom: 8px; }
+        .card-price span { font-size: var(--p2); font-weight: 400; color: var(--gray-500); }
+        .card-desc { font-size: var(--p2); color: var(--gray-700); margin-bottom: 20px; }
+
+        .card-features { list-style: none; text-align: left; margin-bottom: 32px; }
+        .card-features li {
+            padding: 10px 0;
+            font-size: var(--small);
+            color: var(--gray-700);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .card-features li::before { content: '✓'; color: var(--teal); font-weight: 700; }
+
+        /* ========================================
+           SECTION 5: TRUST & GALLERY (v1 Style)
+           ======================================== */
+        .trust-section {
+            padding: var(--section-padding) 0;
+            background: var(--bg-light);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .trust-content h2 { color: var(--navy); margin-bottom: 24px; }
+        .trust-content h4 { color: var(--navy); margin-bottom: 12px; font-size: 20px; }
+        .trust-content p { font-size: var(--p2); color: var(--gray-700); margin-bottom: 24px; line-height: 1.7; }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 100px);
+            gap: 12px;
+        }
+        .gallery-item {
+            background: var(--gray-200);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover { transform: scale(1.05); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15); }
+        .gallery-item.large { grid-column: span 2; grid-row: span 2; }
+        .gallery-btn {
+            background: var(--white);
+            border: 2px solid var(--navy);
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        /* ========================================
+           SECTION 6: DIFFERENTIATORS (v1 Style Cards)
+           ======================================== */
+        .differentiators {
+            padding: var(--section-padding) 0;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .differentiators .section-header h2 { color: var(--white); }
+        .differentiators .section-header p { color: var(--gray-300); }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .diff-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+        .diff-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .diff-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--teal);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .diff-card h4 { color: var(--white); margin-bottom: 12px; }
+        .diff-card p { font-size: var(--p2); color: var(--gray-300); line-height: 1.6; }
+
+        /* ========================================
+           SECTION 7: PERMIT REQUIREMENTS (Tables)
+           ======================================== */
+        .permit-section {
+            padding: var(--section-padding) 0;
+            background: var(--bg-section);
+        }
+
+        .permit-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 60px;
+        }
+
+        .permit-content h2 { color: var(--navy); margin-bottom: 16px; }
+        .permit-content > p { color: var(--gray-700); margin-bottom: 32px; font-size: var(--p2); }
+
+        .permit-table {
+            width: 100%;
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+        .permit-table h4 {
+            background: var(--white);
+            padding: 16px 20px;
+            color: var(--navy);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        .permit-table table { width: 100%; border-collapse: collapse; }
+        .permit-table th {
+            text-align: left;
+            padding: 12px 20px;
+            background: var(--gray-100);
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 14px;
+        }
+        .permit-table td {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+            color: var(--gray-700);
+        }
+        .permit-table td:first-child { font-weight: 600; color: var(--navy); }
+
+        .permit-sidebar {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+        }
+        .permit-sidebar h4 { color: var(--navy); margin-bottom: 16px; }
+        .permit-sidebar p { font-size: 14px; color: var(--gray-700); margin-bottom: 8px; }
+
+        /* ========================================
+           SECTION 8: NEIGHBORHOODS
+           ======================================== */
+        .neighborhoods {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+
+        .neighborhoods-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .neighborhoods-content h2 { color: var(--navy); margin-bottom: 16px; }
+        .neighborhoods-content > p { color: var(--gray-700); margin-bottom: 32px; }
+
+        .neighborhood-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .neighborhood-group h4 {
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+        .neighborhood-group h4::before { content: '✓'; color: var(--teal); font-weight: 700; }
+        .neighborhood-group ul { list-style: none; color: var(--gray-700); font-size: 15px; }
+        .neighborhood-group li { padding: 4px 0; }
+
+        .neighborhoods-note { font-style: italic; color: var(--gray-500); margin-top: 24px; font-size: 14px; }
+
+        .neighborhoods-image {
+            background: var(--gray-200);
+            border-radius: 16px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-500);
+        }
+
+        /* ========================================
+           SECTION 9: TIMELINE (Vertical Style)
+           ======================================== */
+        .timeline-section {
+            padding: var(--section-padding) 0;
+            background: var(--bg-light);
+        }
+
+        .timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 44px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--navy);
+        }
+
+        .timeline-step {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 32px;
+            position: relative;
+        }
+        .timeline-step:last-child { margin-bottom: 0; }
+
+        .step-marker {
+            width: 90px;
+            height: 90px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+        .step-marker .week-label { font-size: 10px; text-transform: uppercase; opacity: 0.8; }
+        .step-marker .week-number { font-size: 26px; font-weight: 700; line-height: 1; }
+
+        .step-content { padding-top: 16px; }
+        .step-content h4 { color: var(--navy); margin-bottom: 8px; font-size: 18px; }
+        .step-content p { color: var(--gray-700); font-size: 15px; line-height: 1.6; }
+
+        .timeline-note { text-align: center; margin-top: 40px; font-style: italic; color: var(--gray-500); }
+
+        /* ========================================
+           SECTION 10: INVESTMENT FACTORS
+           ======================================== */
+        .investment-section {
+            padding: var(--section-padding) 0;
+            background: var(--bg-section);
+        }
+
+        .investment-table {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 40px auto 0;
+        }
+        .investment-table table { width: 100%; border-collapse: collapse; }
+        .investment-table th {
+            text-align: left;
+            padding: 16px 24px;
+            background: var(--gray-100);
+            font-weight: 600;
+            color: var(--navy);
+            font-size: 14px;
+        }
+        .investment-table td {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 14px;
+        }
+        .investment-table td:first-child { font-weight: 600; color: var(--navy); }
+        .investment-table td:nth-child(2) { color: var(--teal); font-weight: 500; }
+        .investment-table td:nth-child(3) { color: var(--gray-700); font-style: italic; }
+
+        .investment-summary { text-align: center; margin-top: 32px; color: var(--gray-700); }
+        .investment-summary strong { color: var(--navy); }
+
+        /* ========================================
+           SECTION 11: FAQ
+           ======================================== */
+        .faq-section {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+
+        .faq-list { max-width: 800px; margin: 40px auto 0; }
+        .faq-item {
+            background: var(--gray-100);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+        .faq-question {
+            width: 100%;
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            font-size: 17px;
+            font-weight: 500;
+            color: var(--navy);
+            font-family: inherit;
+        }
+        .faq-question::after { content: '+'; font-size: 24px; color: var(--gray-500); }
+
+        /* ========================================
+           SECTION 12: FINAL CTA (v1 Style)
+           ======================================== */
+        .final-cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--navy) 0%, #1a3a5c 100%);
+            color: var(--white);
+            text-align: center;
+        }
+        .final-cta h2 { margin-bottom: 16px; }
+        .final-cta p { font-size: var(--p1); color: var(--gray-300); max-width: 600px; margin: 0 auto 40px; }
+
+        .cta-buttons { display: flex; justify-content: center; gap: 20px; }
+        .cta-buttons .btn-secondary { border-color: var(--white); color: var(--white); }
+        .cta-buttons .btn-secondary:hover { background: var(--white); color: var(--navy); }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        footer {
+            background: var(--gray-900);
+            color: var(--gray-500);
+            padding: 40px 0;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* ========================================
+           DESIGNER NOTES
+           ======================================== */
+        .design-notes {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 280px;
+            font-size: 13px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        .design-notes h4 { color: var(--teal); margin-bottom: 12px; font-size: 14px; }
+        .design-notes ul { list-style: none; }
+        .design-notes li { padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 12px; }
+        .design-notes li:last-child { border-bottom: none; }
+        .close-notes { position: absolute; top: 10px; right: 10px; background: none; border: none; color: var(--gray-300); cursor: pointer; font-size: 18px; }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (max-width: 1024px) {
+            .hero-content, .package-grid, .trust-grid, .permit-grid, .neighborhoods-grid { grid-template-columns: 1fr; }
+            .pricing-grid, .diff-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            :root { --h1: 36px; --h2: 32px; --h3: 26px; --h4: 20px; --section-padding: 60px; }
+            .pricing-grid, .diff-grid { grid-template-columns: 1fr; }
+            .hero-stats { flex-wrap: wrap; gap: 24px; }
+            .pricing-card.featured { transform: none; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .neighborhood-columns { grid-template-columns: 1fr; }
+            .design-notes { display: none; }
+            .timeline::before { left: 44px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Designer Notes -->
+<div class="design-notes" id="designNotes">
+    <button class="close-notes" onclick="this.parentElement.style.display='none'">×</button>
+    <h4>🎨 v3 - Best of Both</h4>
+    <ul>
+        <li><strong>Navy:</strong> #0C2340</li>
+        <li><strong>Teal:</strong> #5BC0BE</li>
+        <li><strong>Background:</strong> #E8F4F8</li>
+        <li><strong>Coral:</strong> #E63946</li>
+        <li><strong>Hero:</strong> v1 split layout</li>
+        <li><strong>Offer:</strong> v1 coral banner</li>
+        <li><strong>Sections:</strong> Complete from draft</li>
+    </ul>
+</div>
+
+<!-- SECTION 1: HERO (v1 Style) -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">🏊 Professional Pool Installation</span>
+                <h1>Premium Pool Installation in <span class="placeholder">[City Name]</span></h1>
+                <p class="hero-subtitle">Transform your <span class="placeholder">[City Name]</span> backyard into a stunning oasis. From Oak Ridges to Langstaff, we've been building pools across York Region for over 15 years—and we handle everything from permits to the final splash.</p>
+                <div class="hero-cta">
+                    <a href="#" class="btn-primary">Book Your Free Consultation</a>
+                    <a href="#" class="btn-secondary">View Our Work</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">80+</div>
+                        <div class="stat-label">Pools Installed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2-3</div>
+                        <div class="stat-label">Week Installation</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Permit Handling</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image"></div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: SPECIAL OFFER (v1 Coral Banner) -->
+<section class="special-offer">
+    <div class="container">
+        <div class="offer-content">
+            <div class="offer-text">
+                <h3>🎉 <span class="placeholder">[City Name]</span> Special: Complete Vinyl Pool Package</h3>
+                <p>Free 3D Design • All Permits Handled • Full Warranty Included</p>
+            </div>
+            <div class="offer-price">
+                <div class="price-label">Starting at</div>
+                <div class="price-current">$59,499</div>
+            </div>
+            <div class="offer-cta">
+                <a href="#" class="btn-primary">Get Your Free Quote →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: VINYL PACKAGE -->
+<section class="vinyl-package">
+    <div class="container">
+        <div class="section-header">
+            <h2>Professional Vinyl Pool Installation in <span class="placeholder">[City Name]</span></h2>
+            <p>Complete 12'x24' Package Includes:</p>
+        </div>
+
+        <div class="package-grid">
+            <div>
+                <div class="feature-group">
+                    <h4>Pool Features:</h4>
+                    <ul>
+                        <li>Premium 30 mil vinyl liner (your choice of pattern)</li>
+                        <li>High-performance Hayward sand filter & 1.5HP pump</li>
+                        <li>Saltwater chlorination system</li>
+                        <li>2 RGB LED lights with transformer</li>
+                        <li>3' concrete patio deck with aluminum coping</li>
+                        <li>Walk-in stairs with stainless steel railing</li>
+                        <li>Winter safety cover & solar blanket ($2,000 value)</li>
+                    </ul>
+                </div>
+
+                <div class="feature-group">
+                    <h4>Professional Installation:</h4>
+                    <ul>
+                        <li>City of <span class="placeholder">[City Name]</span> permit preparation & submission</li>
+                        <li>Custom 3D pool layout design</li>
+                        <li>Professional excavation (clay soil specialists)</li>
+                        <li>Engineered drainage system for York Region soils</li>
+                        <li>Complete equipment installation</li>
+                        <li>Backfilling with proper stone (not native clay)</li>
+                        <li>Final inspection coordination</li>
+                    </ul>
+                </div>
+
+                <div class="feature-group">
+                    <h4>Premium Construction:</h4>
+                    <ul>
+                        <li>5" steel walls with frame bracing</li>
+                        <li>2" radius bends for durability</li>
+                        <li>Concrete lock top system</li>
+                        <li>Aluminum coping with snap-edge</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="package-image">
+                📸 Vinyl Pool Image
+                <div class="package-price-tag">
+                    <span class="placeholder">[City Name]</span> <strong>Vinyl Pool</strong> Investment:<br>
+                    <span class="price">$59,499 - $85,000</span> depending on size and features
+                    <br><br>
+                    <a href="#" class="btn-primary">Start Your Dream Pool</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: FIBERGLASS PACKAGES -->
+<section class="fiberglass-packages">
+    <div class="container">
+        <div class="section-header">
+            <h2>Your Dream Fiberglass Pool—Installed in Weeks, Built for Life</h2>
+            <p>Fiberglass pools are perfect for <span class="placeholder">[City Name]</span>'s clay-rich soils. Installation takes just 1-2 weeks.</p>
+        </div>
+
+        <h3 style="text-align: center; margin-bottom: 32px; color: var(--navy);">Choose Your Package:</h3>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="card-tier">Essentials</div>
+                <h4 class="card-title">ESSENTIALS PACKAGE</h4>
+                <div class="card-price">$60,000 <span>starting</span></div>
+                <p class="card-desc">Perfect for <span class="placeholder">[City Name]</span> families wanting quality and value:</p>
+                <ul class="card-features">
+                    <li>Premium fiberglass shell (multiple sizes)</li>
+                    <li>Basic filtration system</li>
+                    <li>Standard LED lighting</li>
+                    <li>Concrete coping</li>
+                    <li>Professional installation</li>
+                    <li>All <span class="placeholder">[City Name]</span> permits included</li>
+                    <li>25-year structural warranty</li>
+                </ul>
+                <a href="#" class="btn-primary">Get Quote</a>
+            </div>
+
+            <div class="pricing-card featured">
+                <span class="featured-badge">Most Popular</span>
+                <div class="card-tier">Signature</div>
+                <h4 class="card-title">SIGNATURE PACKAGE</h4>
+                <div class="card-price">$75,000 <span>starting</span></div>
+                <p class="card-desc">Everything in Essentials, plus:</p>
+                <ul class="card-features">
+                    <li>Saltwater chlorination system</li>
+                    <li>Upgraded RGB LED lighting</li>
+                    <li>Premium interlocking or stamped deck</li>
+                    <li>Enhanced landscaping integration</li>
+                    <li>Automatic pool cleaner</li>
+                    <li>2-year comprehensive warranty</li>
+                </ul>
+                <a href="#" class="btn-primary">Get Quote</a>
+            </div>
+
+            <div class="pricing-card">
+                <div class="card-tier">Luxury</div>
+                <h4 class="card-title">LUXURY PACKAGE</h4>
+                <div class="card-price">$100,000+ <span>starting</span></div>
+                <p class="card-desc">The ultimate <span class="placeholder">[City Name]</span> backyard oasis:</p>
+                <ul class="card-features">
+                    <li>Everything in Signature</li>
+                    <li>Integrated spa or tanning ledge</li>
+                    <li>Water features (waterfalls, bubblers)</li>
+                    <li>Premium natural stone decking</li>
+                    <li>Smart pool automation system</li>
+                    <li>Full landscape transformation</li>
+                </ul>
+                <a href="#" class="btn-primary">Get Quote</a>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="#" class="btn-primary">Book Your Free Consultation</a>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 5: TRUST + GALLERY -->
+<section class="trust-section">
+    <div class="container">
+        <div class="trust-grid">
+            <div class="trust-content">
+                <h2>Why <span class="placeholder">[City Name]</span> Homeowners Choose Nebos Pools:</h2>
+
+                <h4>Built on Craftsmanship, Powered by Passion</h4>
+                <p>When you work with Nebos Pools, you work directly with Nebo—our founder and craftsman-in-chief who personally oversees every <span class="placeholder">[City Name]</span> project from consultation to completion. No middlemen. No salespeople. Just honest work and pools built with pride.</p>
+
+                <h4>15+ Years Serving <span class="placeholder">[City Name]</span> & York Region</h4>
+                <p>We've installed pools across Oak Ridges, Mill Pond, Westbrook, Richvale, and every <span class="placeholder">[City Name]</span> neighborhood. We understand local soil conditions, permit requirements, and what it takes to build pools that last in this community.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item large">Pool 1</div>
+                <div class="gallery-item">Pool 2</div>
+                <div class="gallery-item">Pool 3</div>
+                <div class="gallery-item">Pool 4</div>
+                <div class="gallery-item gallery-btn">View Gallery</div>
+                <div class="gallery-item">Pool 5</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 6: DIFFERENTIATORS -->
+<section class="differentiators">
+    <div class="container">
+        <div class="section-header">
+            <h2>What Sets Us Apart</h2>
+        </div>
+
+        <div class="diff-grid">
+            <div class="diff-card">
+                <div class="diff-icon">🏔️</div>
+                <h4>Clay Soil Experts</h4>
+                <p><span class="placeholder">[City Name]</span> sits on York Region's clay-rich soils. We use engineered stone backfill and proper drainage—not shortcuts that lead to settling and cracks.</p>
+            </div>
+
+            <div class="diff-card">
+                <div class="diff-icon">📋</div>
+                <h4>Complete Permit Handling</h4>
+                <p>We manage your entire City of <span class="placeholder">[City Name]</span> permit process, including the PE grading plan, zoning compliance, and all inspections.</p>
+            </div>
+
+            <div class="diff-card">
+                <div class="diff-icon">⚡</div>
+                <h4>Fast Installation</h4>
+                <p>Most <span class="placeholder">[City Name]</span> pools are completed in 2-3 weeks from permit approval. Fiberglass can be swimming-ready in as little as 10 days.</p>
+            </div>
+
+            <div class="diff-card">
+                <div class="diff-icon">💰</div>
+                <h4>Transparent Pricing</h4>
+                <p>Our quotes include everything—excavation, equipment, deck, permits, cleanup. No hidden fees, no surprises.</p>
+            </div>
+
+            <div class="diff-card">
+                <div class="diff-icon">🛡️</div>
+                <h4>Built to Last</h4>
+                <p>Premium Hayward equipment, 30-mil vinyl liners, 25-year fiberglass warranties. Materials that stand up to Ontario winters.</p>
+            </div>
+
+            <div class="diff-card">
+                <div class="diff-icon">❤️</div>
+                <h4>Lifetime Support</h4>
+                <p>Pool opening, closing, maintenance, and renovation services. We're here for you long after installation is complete.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 7: PERMIT REQUIREMENTS -->
+<section class="permit-section">
+    <div class="container">
+        <div class="permit-grid">
+            <div class="permit-content">
+                <h2>We Handle Everything—So You Don't Have To</h2>
+                <p>Installing a pool in <span class="placeholder">[City Name]</span> requires navigating City permits, zoning bylaws, fence requirements, and potentially TRCA approvals. We manage all of this on your behalf.</p>
+
+                <div class="permit-table">
+                    <h4>City of <span class="placeholder">[City Name]</span> Requirements:</h4>
+                    <table>
+                        <tr><th>Requirement</th><th>Details</th></tr>
+                        <tr><td>Primary Permit</td><td>Swimming Pool Site Alteration Permit (mandatory)</td></tr>
+                        <tr><td>Grading Plan</td><td>Must be prepared by Professional Engineer or Ontario Land Surveyor</td></tr>
+                        <tr><td>Compliance</td><td>Site Alteration By-law Schedule "B" and City Standards Manual</td></tr>
+                        <tr><td>Processing Time</td><td>4-6 weeks (we submit early)</td></tr>
+                    </table>
+                </div>
+
+                <div class="permit-table">
+                    <h4>Pool Fence Requirements (City By-law):</h4>
+                    <table>
+                        <tr><th>Requirement</th><th>Specification</th></tr>
+                        <tr><td>Fence Height</td><td>1.2m to 1.8m (4 to 5.9 feet)</td></tr>
+                        <tr><td>Distance from Pool</td><td>Minimum 1.5 meters from water edge</td></tr>
+                        <tr><td>Gates</td><td>Self-closing, self-latching required</td></tr>
+                        <tr><td>Locks</td><td>Child-proof lock at 1.5m above deck</td></tr>
+                        <tr><td>Design</td><td>No climbable elements within 1.2m</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="permit-sidebar">
+                <h4>Contacts We Work With:</h4>
+                <p><strong>Building Division:</strong> (905) 771-8810</p>
+                <p><strong>Zoning:</strong> zoninginfo@<span class="placeholder">[city]</span>.ca</p>
+                <p><strong>City Office:</strong> [Address]</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 8: NEIGHBORHOODS -->
+<section class="neighborhoods">
+    <div class="container">
+        <div class="neighborhoods-grid">
+            <div class="neighborhoods-content">
+                <h2><span class="placeholder">[City Name]</span> Neighborhoods We Serve</h2>
+                <p>From sprawling Oak Ridges estates to family homes in Langstaff, we've built pools across every <span class="placeholder">[City Name]</span> community:</p>
+
+                <div class="neighborhood-columns">
+                    <div class="neighborhood-group">
+                        <h4>North <span class="placeholder">[City Name]</span>:</h4>
+                        <ul><li>Oak Ridges</li><li>Jefferson</li><li>Bond Lake</li><li>Lake Wilcox</li></ul>
+                    </div>
+                    <div class="neighborhood-group">
+                        <h4>South <span class="placeholder">[City Name]</span>:</h4>
+                        <ul><li>Langstaff</li><li>Richvale</li><li>South Richvale</li><li>Carrville</li><li>Elgin Mills</li><li>Beverley Acres</li></ul>
+                    </div>
+                    <div class="neighborhood-group">
+                        <h4>Central <span class="placeholder">[City Name]</span>:</h4>
+                        <ul><li>Doncrest</li><li>Mill Pond</li><li>Westbrook</li><li>Crosby</li></ul>
+                    </div>
+                    <div class="neighborhood-group">
+                        <h4>East <span class="placeholder">[City Name]</span>:</h4>
+                        <ul><li>Gormley</li><li>Headford</li></ul>
+                    </div>
+                </div>
+
+                <p class="neighborhoods-note">Plus Aurora, Markham, Vaughan, Thornhill, and surrounding York Region communities.</p>
+            </div>
+
+            <div class="neighborhoods-image">📸 Pool Installation Photo</div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 9: TIMELINE -->
+<section class="timeline-section">
+    <div class="container">
+        <div class="section-header">
+            <h2><span class="placeholder">[City Name]</span> Timeline: Permit to Paradise in 6-7 Weeks</h2>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-step">
+                <div class="step-marker"><span class="week-label">Weeks</span><span class="week-number">1-2</span></div>
+                <div class="step-content">
+                    <h4>Permit Approval</h4>
+                    <p>We submit all applications to the City of <span class="placeholder">[City Name]</span> Building Division, coordinate the PE grading plan, and manage any TRCA requirements.</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-marker"><span class="week-label">Week</span><span class="week-number">3</span></div>
+                <div class="step-content">
+                    <h4>Site Preparation</h4>
+                    <p>Excavation begins. We remove clay soil and prepare proper drainage—critical for <span class="placeholder">[City Name]</span>'s soil conditions.</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-marker"><span class="week-label">Weeks</span><span class="week-number">4-5</span></div>
+                <div class="step-content">
+                    <h4>Pool Installation</h4>
+                    <p>Shell installation (fiberglass) or wall construction (vinyl), plumbing and electrical, engineered stone backfill, equipment setup.</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-marker"><span class="week-label">Week</span><span class="week-number">6</span></div>
+                <div class="step-content">
+                    <h4>Deck & Finishing</h4>
+                    <p>Concrete or paver deck, fence installation per City by-law, final grading and landscaping.</p>
+                </div>
+            </div>
+            <div class="timeline-step">
+                <div class="step-marker"><span class="week-label">Week</span><span class="week-number">7</span></div>
+                <div class="step-content">
+                    <h4>Inspection & Handover</h4>
+                    <p>City of <span class="placeholder">[City Name]</span> final inspection, water chemistry balancing, equipment orientation, warranty documentation.</p>
+                </div>
+            </div>
+        </div>
+
+        <p class="timeline-note"><strong>Total Active Construction:</strong> 2-3 weeks. Fiberglass Pools: As fast as 10 days from excavation to swimming.</p>
+    </div>
+</section>
+
+<!-- SECTION 10: INVESTMENT FACTORS -->
+<section class="investment-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>What Affects Your Investment</h2>
+        </div>
+
+        <div class="investment-table">
+            <table>
+                <tr><th>Factor</th><th>Typical Impact</th><th><span class="placeholder">[City Name]</span> Notes</th></tr>
+                <tr><td>Pool Type</td><td>Base pricing</td><td>Vinyl from $59,499 / Fiberglass from $60,000</td></tr>
+                <tr><td>Size</td><td>+$5K-$25K</td><td>Larger pools require more materials and excavation</td></tr>
+                <tr><td>Soil Conditions</td><td>+$3K-$8K</td><td>Clay soil requires specialized drainage and backfill</td></tr>
+                <tr><td>Lot Access</td><td>+$2K-$5K</td><td>Narrow side yards common in Langstaff and Richvale</td></tr>
+                <tr><td>TRCA Requirements</td><td>+$1.5K-$4K</td><td>Ravine properties need geotechnical assessment</td></tr>
+                <tr><td>Deck Upgrades</td><td>+$5K-$25K</td><td>Stamped concrete, pavers, natural stone options</td></tr>
+                <tr><td>Features</td><td>Varies</td><td>Heaters, automation, water features, lighting</td></tr>
+            </table>
+        </div>
+
+        <div class="investment-summary">
+            <p><strong>Most <span class="placeholder">[City Name]</span> Homeowners Invest: $65,000 - $95,000</strong> for a complete pool installation with quality finishes.</p>
+            <p style="margin-top: 12px;">Return on Investment: With <span class="placeholder">[City Name]</span>'s average detached home valued at $1.82M, a professionally installed pool adds $50,000-$100,000+ to property value.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 11: FAQ -->
+<section class="faq-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item"><button class="faq-question">Do I need a permit for a pool in <span class="placeholder">[City Name]</span>?</button></div>
+            <div class="faq-item"><button class="faq-question">How much does a pool cost in <span class="placeholder">[City Name]</span>?</button></div>
+            <div class="faq-item"><button class="faq-question">How long does pool installation take?</button></div>
+            <div class="faq-item"><button class="faq-question">What are <span class="placeholder">[City Name]</span>'s pool fence requirements?</button></div>
+            <div class="faq-item"><button class="faq-question">Do you handle permits and inspections?</button></div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 12: FINAL CTA -->
+<section class="final-cta">
+    <div class="container">
+        <h2>Ready to Transform Your <span class="placeholder">[City Name]</span> Backyard?</h2>
+        <p>Get a custom quote for your dream pool. Free consultation, no obligation.</p>
+        <div class="cta-buttons">
+            <a href="#" class="btn-primary">Book Your Free Consultation</a>
+            <a href="tel:+14168399685" class="btn-secondary">Call +1 (416) 839-9685</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>© 2024 Nebos Pools. Location Page Template v3 - Designer Handoff</p>
+        <p style="margin-top: 8px;">All <span class="placeholder">[City Name]</span> placeholders are dynamic CMS fields.</p>
+    </div>
+</footer>
+
+</body>
+</html>
