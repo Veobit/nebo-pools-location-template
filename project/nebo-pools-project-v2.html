@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Morrison Residence | Nebo Pools Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-navy: #0A2540;
+            --cyan: #4DD0E1;
+            --cyan-dark: #3BBCC9;
+            --coral: #FF6B6B;
+            --gold: #E8B84A;
+            --light-blue: #E8F4F8;
+            --section-blue: #F0F7FA;
+            --cream: #FDFCFA;
+            --white: #FFFFFF;
+            --gray-100: #F5F7FA;
+            --gray-200: #E5E7EB;
+            --gray-500: #6B7280;
+            --gray-700: #374151;
+            --gray-900: #1F2933;
+            --font-heading: 'Fraunces', serif;
+            --font-body: 'Outfit', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--gray-900);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* =====================
+           HEADER
+           ===================== */
+        .header {
+            background: var(--deep-navy);
+            padding: 16px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--cyan);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav a:hover {
+            color: var(--white);
+        }
+
+        .nav-cta {
+            background: var(--cyan);
+            color: var(--deep-navy) !important;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--cyan-dark);
+            transform: translateY(-1px);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: var(--deep-navy);
+            padding: 24px;
+            flex-direction: column;
+            gap: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            transform: translateY(-100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .mobile-nav a {
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: color 0.2s;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--cyan);
+        }
+
+        .mobile-nav .nav-cta {
+            background: var(--cyan);
+            color: var(--deep-navy) !important;
+            padding: 14px 24px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            margin-top: 8px;
+            border: none;
+        }
+
+        /* =====================
+           WAVE DIVIDERS
+           ===================== */
+        .wave-divider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .wave-divider.top {
+            transform: rotate(180deg);
+        }
+
+        .wave-divider .fill-white {
+            fill: var(--white);
+        }
+
+        .wave-divider .fill-section-blue {
+            fill: var(--section-blue);
+        }
+
+        .wave-divider .fill-navy {
+            fill: var(--deep-navy);
+        }
+
+        /* =====================
+           VISUAL TEXTURE OVERLAYS
+           ===================== */
+        .texture-overlay {
+            position: relative;
+        }
+
+        .texture-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .texture-overlay > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Water ripple pattern for light sections */
+        .water-texture::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(77, 208, 225, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* =====================
+           SCROLL ANIMATIONS
+           ===================== */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+        .stagger-5 { transition-delay: 0.5s; }
+        .stagger-6 { transition-delay: 0.6s; }
+
+        /* =====================
+           HERO
+           ===================== */
+        .hero {
+            background: linear-gradient(180deg, rgba(10, 37, 64, 0.7) 0%, rgba(10, 37, 64, 0.5) 100%),
+                        url('https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=1920&h=1080&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 160px 0 100px;
+            min-height: 80vh;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .hero-content {
+            width: 100%;
+        }
+
+        .hero-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            transition: color 0.2s;
+        }
+
+        .hero-back:hover {
+            color: var(--white);
+        }
+
+        .hero-back svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: var(--cyan);
+            color: var(--deep-navy);
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 600;
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+
+        .hero-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-location svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--cyan);
+        }
+
+        /* =====================
+           PROJECT INFO BAR
+           ===================== */
+        .project-info-bar {
+            background: var(--white);
+            padding: 40px 0;
+            border-bottom: 1px solid var(--gray-200);
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+            text-align: center;
+        }
+
+        .info-item {
+            position: relative;
+        }
+
+        .info-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 40px;
+            width: 1px;
+            background: var(--gray-200);
+        }
+
+        .info-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gray-500);
+            margin-bottom: 8px;
+        }
+
+        .info-value {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--deep-navy);
+        }
+
+        /* =====================
+           OVERVIEW SECTION
+           ===================== */
+        .overview-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .section-eyebrow {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 12px;
+        }
+
+        .overview-title {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--deep-navy);
+            line-height: 1.2;
+        }
+
+        .overview-text {
+            font-size: 17px;
+            color: var(--gray-700);
+            line-height: 1.8;
+        }
+
+        .overview-text p {
+            margin-bottom: 20px;
+        }
+
+        /* =====================
+           SERVICES SECTION
+           ===================== */
+        .services-section {
+            padding: 80px 0;
+            background: var(--section-blue);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--deep-navy);
+            margin-top: 12px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0 2px 12px rgba(10, 37, 64, 0.06);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(10, 37, 64, 0.1);
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--light-blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .service-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: var(--cyan);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--deep-navy);
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--gray-500);
+            line-height: 1.7;
+        }
+
+        /* =====================
+           GALLERY SECTION
+           ===================== */
+        .gallery-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item.large {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(10, 37, 64, 0);
+            transition: background 0.3s;
+        }
+
+        .gallery-item:hover::after {
+            background: rgba(10, 37, 64, 0.2);
+        }
+
+        .gallery-zoom {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover .gallery-zoom {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .gallery-zoom svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--deep-navy);
+        }
+
+        /* =====================
+           BEFORE/AFTER SECTION
+           ===================== */
+        .before-after-section {
+            padding: 80px 0;
+            background: linear-gradient(180deg, rgba(10, 37, 64, 0.92) 0%, rgba(10, 37, 64, 0.88) 100%),
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .before-after-section .section-header h2 {
+            color: var(--white);
+        }
+
+        .comparison-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .comparison-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+        }
+
+        .comparison-image {
+            position: absolute;
+            inset: 0;
+        }
+
+        .comparison-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .comparison-image.before {
+            clip-path: inset(0 50% 0 0);
+        }
+
+        .comparison-slider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--white);
+            cursor: ew-resize;
+            z-index: 20;
+            transform: translateX(-50%);
+        }
+
+        .comparison-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-handle svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--deep-navy);
+        }
+
+        .comparison-label {
+            position: absolute;
+            top: 20px;
+            padding: 8px 16px;
+            background: rgba(10, 37, 64, 0.85);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 6px;
+        }
+
+        .comparison-label.before-label {
+            left: 20px;
+        }
+
+        .comparison-label.after-label {
+            right: 20px;
+        }
+
+        /* =====================
+           TESTIMONIAL SECTION
+           ===================== */
+        .testimonial-section {
+            padding: 100px 0;
+            background: var(--section-blue);
+        }
+
+        .testimonial-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial-stars {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-stars svg {
+            width: 24px;
+            height: 24px;
+            fill: #FFB800;
+        }
+
+        .testimonial-quote {
+            font-family: var(--font-heading);
+            font-size: clamp(24px, 3.5vw, 36px);
+            font-weight: 500;
+            font-style: italic;
+            color: var(--deep-navy);
+            line-height: 1.4;
+            margin-bottom: 36px;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--gray-200);
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            text-align: left;
+        }
+
+        .author-name {
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--deep-navy);
+        }
+
+        .author-location {
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        /* =====================
+           RELATED PROJECTS
+           ===================== */
+        .related-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .related-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(10, 37, 64, 0.08);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .related-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(10, 37, 64, 0.12);
+        }
+
+        .related-image {
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+        .related-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .related-card:hover .related-image img {
+            transform: scale(1.05);
+        }
+
+        .related-content {
+            padding: 20px;
+        }
+
+        .related-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: var(--light-blue);
+            color: var(--deep-navy);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .related-title {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--deep-navy);
+            margin-bottom: 6px;
+        }
+
+        .related-location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: var(--gray-500);
+        }
+
+        .related-location svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--cyan);
+        }
+
+        /* =====================
+           CTA SECTION
+           ===================== */
+        .cta-section {
+            background: linear-gradient(180deg, rgba(10, 37, 64, 0.92) 0%, rgba(10, 37, 64, 0.88) 100%),
+                        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(28px, 4vw, 42px);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .cta-section h2 .highlight {
+            color: var(--gold);
+        }
+
+        .cta-section p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 480px;
+            margin: 0 auto 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--cyan);
+            color: var(--deep-navy);
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            color: var(--white);
+            padding: 14px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* =====================
+           FOOTER
+           ===================== */
+        .footer {
+            background: var(--deep-navy);
+            padding: 60px 0 32px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--white);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 24px;
+        }
+
+        .footer-logo span {
+            color: var(--cyan);
+        }
+
+        .footer-cta {
+            display: inline-block;
+            background: var(--cyan);
+            color: var(--deep-navy);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            text-decoration: none;
+            margin-bottom: 48px;
+            transition: all 0.3s;
+        }
+
+        .footer-cta:hover {
+            background: var(--white);
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 32px;
+        }
+
+        .footer-col h4 {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--cyan);
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* =====================
+           LIGHTBOX
+           ===================== */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 37, 64, 0.95);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            background: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--deep-navy);
+        }
+
+        .lightbox-image {
+            max-width: 90vw;
+            max-height: 85vh;
+            border-radius: 12px;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-prev { left: 24px; }
+        .lightbox-next { right: 24px; }
+
+        .lightbox-nav svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--deep-navy);
+        }
+
+        /* =====================
+           RESPONSIVE
+           ===================== */
+        @media (max-width: 1024px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .info-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .info-item:nth-child(3)::after {
+                display: none;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .gallery-item.large {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .related-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav { display: none; }
+
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .mobile-nav {
+                display: flex;
+            }
+
+            .hero { min-height: 60vh; padding: 140px 0 80px; }
+
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .info-item::after { display: none; }
+
+            .services-grid { grid-template-columns: 1fr; }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item.large {
+                grid-column: span 2;
+            }
+
+            .related-grid { grid-template-columns: 1fr; }
+
+            .cta-buttons { flex-direction: column; align-items: center; }
+
+            .footer-grid {
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content > * {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .hero-back { animation-delay: 0.1s; }
+        .hero-tag { animation-delay: 0.2s; }
+        .hero h1 { animation-delay: 0.3s; }
+        .hero-location { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">NEBO <span>POOLS</span></a>
+            <nav class="nav">
+                <a href="../portfolio/nebo-pools-portfolio-v2.html">Gallery</a>
+                <a href="#">Custom Pools</a>
+                <a href="#">Blog</a>
+                <a href="#">About Us</a>
+                <a href="#" class="nav-cta">Schedule My Consultation</a>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="../portfolio/nebo-pools-portfolio-v2.html">Gallery</a>
+            <a href="#">Custom Pools</a>
+            <a href="#">Blog</a>
+            <a href="#">About Us</a>
+            <a href="#" class="nav-cta">Schedule My Consultation</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <a href="../portfolio/nebo-pools-portfolio-v2.html" class="hero-back">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Back to Portfolio
+                </a>
+                <span class="hero-tag">Fiberglass Pool + Spa</span>
+                <h1>The Morrison Residence</h1>
+                <div class="hero-location">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    Oak Ridges, Richmond Hill
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Info Bar -->
+    <section class="project-info-bar">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Pool Type</div>
+                    <div class="info-value">Fiberglass</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Pool Size</div>
+                    <div class="info-value">16' × 36'</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Package</div>
+                    <div class="info-value">Luxury</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Timeline</div>
+                    <div class="info-value">6 Weeks</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Completed</div>
+                    <div class="info-value">July 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Divider: Info Bar to Overview -->
+    <div class="wave-divider">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="fill-white"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="fill-white"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="fill-white"></path>
+        </svg>
+    </div>
+
+    <!-- Overview -->
+    <section class="overview-section texture-overlay water-texture">
+        <div class="container">
+            <div class="overview-grid">
+                <div>
+                    <div class="section-eyebrow">Project Overview</div>
+                    <h2 class="overview-title">A resort-style sanctuary for a growing family</h2>
+                </div>
+                <div class="overview-text">
+                    <p>The Morrison family approached us with a clear vision: transform their expansive Oak Ridges backyard into a private resort that would serve as the centerpiece for family gatherings and summer entertaining for generations to come.</p>
+                    <p>The property presented unique challenges—sitting on York Region's characteristic clay soils with a gentle slope toward the ravine. Our team worked closely with TRCA to ensure full compliance while delivering a design that maximized the stunning views.</p>
+                    <p>The result is a 16' × 36' freeform fiberglass pool with integrated spa, natural stone decking, and a custom water feature that creates the gentle sound of flowing water throughout the space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wave Divider: Overview to Services -->
+    <div class="wave-divider top">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="fill-section-blue"></path>
+            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="fill-section-blue"></path>
+            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="fill-section-blue"></path>
+        </svg>
+    </div>
+
+    <!-- Services -->
+    <section class="services-section texture-overlay">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">What We Delivered</div>
+                <h2>Services & Features</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    </div>
+                    <h3>Premium Fiberglass Shell</h3>
+                    <p>16' × 36' freeform design with integrated tanning ledge and bench seating. 25-year structural warranty.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>
+                    </div>
+                    <h3>Integrated Spa</h3>
+                    <p>Spillover spa with hydrotherapy jets and LED chromotherapy lighting for year-round relaxation.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    </div>
+                    <h3>Natural Stone Deck</h3>
+                    <p>800 sq ft of premium travertine decking with non-slip finish, seamlessly integrated with landscape.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v10l4.24 4.24"/><circle cx="12" cy="12" r="10"/></svg>
+                    </div>
+                    <h3>Smart Automation</h3>
+                    <p>Pentair IntelliCenter system with app control for lighting, temperature, and water chemistry.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3>Complete Permits</h3>
+                    <p>Full coordination with City of Richmond Hill and TRCA. All inspections passed first time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                    </div>
+                    <h3>Water Feature</h3>
+                    <p>Custom rock waterfall with LED backlighting creating a dramatic focal point.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Project Gallery</div>
+                <h2>The Transformation</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item large" data-src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=1600">
+                    <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=800&h=800&fit=crop" alt="Pool overview">
+                    <div class="gallery-zoom">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    </div>
+                </div>
+                <div class="gallery-item" data-src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=800">
+                    <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=400&h=400&fit=crop" alt="Water feature">
+                    <div class="gallery-zoom">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    </div>
+                </div>
+                <div class="gallery-item" data-src="https://images.unsplash.com/photo-1598902108854-10e335adac99?w=800">
+                    <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?w=400&h=400&fit=crop" alt="Evening shot">
+                    <div class="gallery-zoom">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    </div>
+                </div>
+                <div class="gallery-item" data-src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=800">
+                    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?w=400&h=400&fit=crop" alt="Deck area">
+                    <div class="gallery-zoom">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    </div>
+                </div>
+                <div class="gallery-item" data-src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop" alt="Wide view">
+                    <div class="gallery-zoom">
+                        <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before/After -->
+    <section class="before-after-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">The Transformation</div>
+                <h2>Before & After</h2>
+            </div>
+            <div class="comparison-container">
+                <div class="comparison-wrapper" id="comparison">
+                    <div class="comparison-image after">
+                        <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?w=1200&h=750&fit=crop" alt="After">
+                    </div>
+                    <div class="comparison-image before" id="beforeImage">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=750&fit=crop" alt="Before">
+                    </div>
+                    <div class="comparison-slider" id="slider">
+                        <div class="comparison-handle">
+                            <svg viewBox="0 0 24 24"><path d="M18 8L22 12L18 16M6 8L2 12L6 16"/></svg>
+                        </div>
+                    </div>
+                    <span class="comparison-label before-label">Before</span>
+                    <span class="comparison-label after-label">After</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="testimonial-content">
+                <div class="testimonial-stars">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                </div>
+                <blockquote class="testimonial-quote">
+                    "We have a large estate lot in Oak Ridges with specific design requirements. Nebo treated our project like it was his own home. The luxury package with the integrated spa has become our favourite evening retreat. Worth every penny."
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=112&h=112&fit=crop" alt="Andrew Morrison">
+                    </div>
+                    <div class="author-info">
+                        <div class="author-name">Andrew & Michelle Morrison</div>
+                        <div class="author-location">Oak Ridges, Richmond Hill</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related -->
+    <section class="related-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-eyebrow">Explore More</div>
+                <h2>Related Projects</h2>
+            </div>
+            <div class="related-grid">
+                <a href="nebo-pools-project-v2.html?project=woodbridge-oasis" class="related-card">
+                    <div class="related-image">
+                        <img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=500&h=375&fit=crop" alt="Woodbridge Oasis">
+                    </div>
+                    <div class="related-content">
+                        <span class="related-tag">Vinyl</span>
+                        <h3 class="related-title">Woodbridge Oasis</h3>
+                        <div class="related-location">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                            Sonoma Heights, Vaughan
+                        </div>
+                    </div>
+                </a>
+                <a href="nebo-pools-project-v2.html?project=glen-abbey-estate" class="related-card">
+                    <div class="related-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&h=375&fit=crop" alt="Glen Abbey Estate">
+                    </div>
+                    <div class="related-content">
+                        <span class="related-tag">Fiberglass + Spa</span>
+                        <h3 class="related-title">Glen Abbey Estate</h3>
+                        <div class="related-location">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                            Glen Abbey, Oakville
+                        </div>
+                    </div>
+                </a>
+                <a href="nebo-pools-project-v2.html?project=st-andrews-modern" class="related-card">
+                    <div class="related-image">
+                        <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?w=500&h=375&fit=crop" alt="St. Andrews Modern">
+                    </div>
+                    <div class="related-content">
+                        <span class="related-tag">Fiberglass</span>
+                        <h3 class="related-title">St. Andrews Modern</h3>
+                        <div class="related-location">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+                            Hills of St. Andrews, Aurora
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Let's Talk About Your <span class="highlight">Pool Project</span></h2>
+            <p>Schedule a free consultation and let's create something extraordinary for your backyard.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">
+                    Schedule Your Free Consultation
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="tel:4168399685" class="btn-secondary">Call (416) 839-9685</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <a href="#" class="footer-logo">NEBO <span>POOLS</span></a>
+            <a href="#" class="footer-cta">Schedule My Consultation</a>
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../portfolio/nebo-pools-portfolio-v2.html">Gallery</a></li>
+                        <li><a href="#">Custom Pools</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Fiberglass Pools</a></li>
+                        <li><a href="#">Vinyl Pools</a></li>
+                        <li><a href="#">Pool Renovations</a></li>
+                        <li><a href="#">Maintenance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Working Hours</h4>
+                    <ul>
+                        <li><a href="#">Mon - Fri: 7am - 5pm</a></li>
+                        <li><a href="#">Saturday: By Appointment</a></li>
+                        <li><a href="#">Sunday: Closed</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:4168399685">(416) 839-9685</a></li>
+                        <li><a href="mailto:info@nebospools.com">info@nebospools.com</a></li>
+                        <li><a href="#">Pickering, Ontario</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Nebo Pools. All rights reserved. Licensed & Insured | WSIB Covered
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <img class="lightbox-image" id="lightboxImage" src="" alt="">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileMenuToggle.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuToggle.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Scroll Animations with IntersectionObserver
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Add fade-in-up class to service cards and related cards dynamically
+        document.querySelectorAll('.service-card, .related-card, .gallery-item').forEach((el, index) => {
+            el.classList.add('fade-in-up');
+            el.style.transitionDelay = `${(index % 3) * 0.1}s`;
+            observer.observe(el);
+        });
+
+        // Before/After Slider
+        const comparison = document.getElementById('comparison');
+        const slider = document.getElementById('slider');
+        const beforeImage = document.getElementById('beforeImage');
+        let isResizing = false;
+
+        slider.addEventListener('mousedown', () => isResizing = true);
+        slider.addEventListener('touchstart', () => isResizing = true);
+        document.addEventListener('mouseup', () => isResizing = false);
+        document.addEventListener('touchend', () => isResizing = false);
+
+        function handleMove(e) {
+            if (!isResizing) return;
+            const rect = comparison.getBoundingClientRect();
+            const x = (e.type.includes('touch') ? e.touches[0].clientX : e.clientX) - rect.left;
+            const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            slider.style.left = `${percent}%`;
+            beforeImage.style.clipPath = `inset(0 ${100 - percent}% 0 0)`;
+        }
+
+        comparison.addEventListener('mousemove', handleMove);
+        comparison.addEventListener('touchmove', handleMove);
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const images = Array.from(galleryItems).map(item => item.dataset.src);
+        let currentIndex = 0;
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentIndex = index;
+                lightboxImage.src = images[currentIndex];
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        document.getElementById('lightboxClose').addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        document.getElementById('lightboxPrev').addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            lightboxImage.src = images[currentIndex];
+        });
+
+        document.getElementById('lightboxNext').addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % images.length;
+            lightboxImage.src = images[currentIndex];
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (!lightbox.classList.contains('active')) return;
+            if (e.key === 'Escape') document.getElementById('lightboxClose').click();
+            if (e.key === 'ArrowLeft') document.getElementById('lightboxPrev').click();
+            if (e.key === 'ArrowRight') document.getElementById('lightboxNext').click();
+        });
+    </script>
+</body>
+</html>
